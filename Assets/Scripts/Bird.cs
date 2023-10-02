@@ -22,6 +22,11 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.transform.localPosition.x < -30f || this.transform.localPosition.x > 30f ||
+            this.transform.localPosition.y < -20f || this.transform.localPosition.y > 40f)
+        {
+            SceneManager.LoadScene(currentScene);
+        }
         if (launched && GetComponent<Rigidbody2D>().velocity.magnitude < 0.5f)
         {
             gameTimer += Time.deltaTime;
@@ -32,12 +37,14 @@ public class Bird : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (launched) return;
         GetComponent<SpriteRenderer>().color = Color.red;
         GetComponent<LineRenderer>().enabled = true;
     }
 
     void OnMouseUp()
     {
+        if (launched) return;
         GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<Rigidbody2D>().gravityScale = 1;
         GetComponent<Rigidbody2D>().AddForce(power * (initialPosition - this.transform.localPosition));
@@ -47,6 +54,7 @@ public class Bird : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (launched) return;
         Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 newPosition = new Vector3(screenToWorldPosition.x, screenToWorldPosition.y, this.transform.localPosition.z);
         this.transform.localPosition = newPosition;
