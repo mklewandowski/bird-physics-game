@@ -1,6 +1,8 @@
 # bird-physics-game
 A simple bird tossing physics game based on Jason Weimann's terrific [Unity tutorial](https://www.youtube.com/watch?v=OR0e-1UBEOU). I made this game for practice after watching the tutorial. I simply wanted to see how fast I could recreate the game presented in the tutorial from memory. It ended up being a fun exercise. Feel free to use this as a starting point for a Angry Birds style physics game.
 
+![Gameplay](https://github.com/mklewandowski/bird-physics-game/blob/main/Assets/Images/gameplay.gif?raw=true)
+
 ## Running Locally
 Use the following steps to run locally:
 1. Clone this repo
